@@ -11,6 +11,7 @@ const LoginPage: React.FC = () => {
     const [error, setError] = useState<string |  null>(null)
     const router = useRouter();
     
+    const siteKey = process.env.SITE_KEY
 
     const handleCaptchaChange = (token: string | null) => {
         setCaptchaToken(token)
@@ -80,7 +81,7 @@ const LoginPage: React.FC = () => {
           </div>
           <div className="mb-4">
             <ReCAPTCHA
-              sitekey="6LfB5pUqAAAAAM0bAocMz9LEzT6QH-bJJIDMZf77"//Site Key     
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE || ""}//Site Key     
               onChange={handleCaptchaChange}
             />
           </div>
